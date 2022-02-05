@@ -4,10 +4,26 @@ a:link{
 a:visited { 
     color:black; 
 }
+span:hover { 
+    color: gray;
+}
 a:hover { 
-    color:black;
+    color:gray;
     text-decoration: none;
 }
+
+tr:hover {
+    cursor: pointer;
+}
+
+table {
+    font-family: 'Gugi', cursive;
+}
+
+button {
+    font-family: 'Gugi', cursive;    
+}
+
 
 body {
     background: #2980B9;  /* fallback for old browsers */
@@ -44,7 +60,7 @@ body {
     margin-top: -2%
 }
 
-.sign>span {
+.sign > a > span {
     display: inline-block;
     margin: 0 7% 0 7%;
     width: 120px;
@@ -53,7 +69,7 @@ body {
     text-decoration: underline solid black 1px;
 }
 
-.sign>span:hover{
+.sign> a > span:hover{
     cursor: pointer;
 }
 
@@ -83,9 +99,80 @@ body {
     color:black;
 }
 
-
 .btn-light {
     margin: -2% 10% 0 0;
     border: 2px solid skyblue;
     float: right;
 }
+
+.post {
+    width: 80%;
+    height: 63%;
+    clear: both;
+    font-family: 'Gugi', cursive;
+    margin: 0 auto 0 auto;
+}
+.post_name_input {
+    margin: 2% 0 2% 0;
+}
+.login-form{
+    font-family: 'Gugi', cursive;
+    width: 45%;
+    height: 50%;
+    margin: 0 auto 0 auto;
+    border: 2px solid skyblue;
+    text-align:center;
+    border-radius:2%;
+}
+
+.login-form > p{
+    margin-top : 7%;
+}
+
+.login-form > input{
+    width: 60%;
+    height: 50px;
+    margin: 10px auto 10px auto;
+    clear: both;
+}
+
+.login-btn{
+    font-size:25px;
+    float:None;
+    width:100px;
+    height:45px;
+    margin-top:4%;
+    border-radius: 5%;
+    margin:4% auto 4% auto;
+}
+
+.sign-up-form {
+        font-family: 'Gugi', cursive;
+        width: 45%;
+        height: 60%;
+        margin: 0 auto 0 auto;
+        border: 2px solid skyblue;
+        text-align:center;    
+        border-radius:2%;
+    }
+    
+    .sign-up-form > p{
+        margin-top : 4%;
+    }
+    
+    .sign-up-form > input{
+        width: 60%;
+        height: 50px;
+        margin: 10px auto 10px auto;
+        clear: both;
+    }
+
+    .sign-up-form > button{
+        font-size:25px;
+        float:None;
+        width:150px;
+        height:45px;
+        margin-top:4%;
+        border-radius: 5%;
+        margin:4% auto 4% auto;
+        }

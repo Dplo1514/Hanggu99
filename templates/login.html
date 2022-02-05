@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- ajax import -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- css파일의 경로 설정 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- script 파일의 경로 설정  -->
+    <script src="{{ url_for('static', filename='js/script.js')}}"></script>
+    <!-- google font import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&family=Parisienne&display=swap" rel="stylesheet">
+
+    <title>Hanggu99</title>
+
+
+</head>
+
+
+<body>
+    <a href="{{url_for('home')}}">
+        <div class="title">
+            <h1>Hanggu99</h1>
+        </div>
+    </a>
+
+    <hr style="border:1px color= silver;" width="90%">
+
+    <div class="login-form">
+        <p>ID를 입력해주세요</p>
+        <input id = "login_id" class="form-control form-control-lg" type="text" placeholder="ID를 입력해주세요"
+            aria-label=".form-control-lg example">
+        </input>
+
+
+        <p>비밀번호를 입력해주세요</p>
+        <input id = "login_b"class="form-control" type="password" placeholder="비밀번호를 입력해주세요">
+        <button onclick = "login()" type="button" class="btn btn-light login-btn">로그인</button>
+        </input>
+
+    </div>
+
+    <hr style="border:1px color= white;" width="90%">
+
+</body>
+
+</html>
