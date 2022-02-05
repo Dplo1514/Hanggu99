@@ -1,37 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Hanggu99</title>
-    <script>
-        function hey() {
-            $.ajax({
-                type: "GET",
-                url: "/test?title_give=봄날은간다",
-                data: {},
-                success: function(response){
-                console.log(response)
-                }
-            })
-        }
 
-        function hey2() {
-            $.ajax({
-                type: "POST",
-                url: "/test",
-                data: { title_give:'봄날은간다' },
-                success: function(response){
-                console.log(response)
-                }
-            })
-        }
-    </script>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- ajax import -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- css파일의 경로 설정 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- script 파일의 경로 설정  -->
+    <script src="{{ url_for('static', filename='js/script.js')}}"></script>
+    <!-- google font import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&family=Parisienne&display=swap" rel="stylesheet">
+
+    <title>Hanggu99</title>
+
+
 </head>
+
+
 <body>
-    <span>hello wordl!!</span>
-    <button on_click="hey()">hey</button>
+    <a href="{{url_for('home')}}">
+        <div class="title">
+            <h1>Hanggu99</h1>
+        </div>
+    </a>
+    <div class="sign">
+        <span>login</span>
+        <span>sing-up</span>
+    </div>
+    <hr style="border:1px color= silver;" width="90%">
+
+    <div class="main-cards">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div id="spare" class="col">
+                <div class="card h-100">
+                    <img width="100%" height="100%"
+                        src="data:image/jpeg;base64,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"
+                        class="card-img-top">
+                    <a href="{{url_for('border')}}">
+                        <div class="card-body">
+                            <h5 class="card-title">예비 선원</h5>
+                            <p class="card-text">항해를 시작하기전의 예비선원 여러분!<br> 사전과정을 거쳐갔던 선배들의 노하우 <br> 사전과정을 진행하며 있을 어려움을
+                                나눠보아요!
+                            </p>
+                        </div>
+                    </a>
+                    <div class="card-footer">
+                        <small class="text-muted">예비선원 Zone</small>
+                    </div>
+                </div>
+            </div>
+            <div onclick="" class="col">
+                <div class="card h-100">
+                    <img width="100%" height="100%"
+                        src="https://img.etoday.co.kr/pto_db/2021/08/600/20210811164343_1654386_1200_799.jpg"
+                        class="card-img-top">
+                    <a href="{{url_for('border')}}">
+                        <div class="card-body">
+                            <h5 class="card-title">1등 항해사</h5>
+                            <p class="card-text">항해 99를 끝마친 1등 항해사 선배님들의 후기 <br> 항해를 진행중인 후배 선원들에게 <br> 응원과 노하우를
+                                부탁드리겠습니다!
+                            </p>
+                        </div>
+                    </a>
+                    <div class="card-footer">
+                        <small class="text-muted">1등 항해사 Zone</small>
+                    </div>
+                </div>
+            </div>
+            <div onclick="" class="col">
+                <div class="card h-100">
+                    <img width="100%" height="100%"
+                        src="https://mblogthumb-phinf.pstatic.net/MjAxNzA5MDVfMTc3/MDAxNTA0NTY3MzMyNjU4.ZZFOlcinD3rNednYFsST_MJwmykyEzc8YBJVCC0wrWMg.VXzzXTwTUP0_YYaRCK-WOPJG2iFUBLNRTtyBVeLkYOcg.JPEG.cowai/1_%281%29.jpg?type=w800"
+                        class="card-img-top">
+                    <a href="{{url_for('border')}}">
+                        <div class="card-body">
+                            <h5 class="card-title">선원</h5>
+                            <p class="card-text">항해를 떠난 선원 여러분들 <br>함깨 항해중인 동료를 위한 따뜻한 격려와<br>여러분들의 항해 일지를 공유해주세요! </p>
+                        </div>
+                    </a>
+                    <div class="card-footer">
+                        <small class="text-muted">선원 Zone</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr style="border:1px color= white;" width="90%">
+    </div>
+
 </body>
+
 </html>
