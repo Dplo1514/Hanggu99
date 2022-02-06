@@ -43,20 +43,13 @@ def save_member():
     }
     
     db.users.insert_one(doc)
-    return render_template("index.html") , jsonify({'msg': '회원가입이 완료되었습니다!'})
+    return jsonify({'msg': '회원가입이 완료되었습니다!'})
  
  #로그인 기능 구현
-@app.route("/login",methods=["POST" , "GET"])
+@app.route("/login",methods=["GET"])
 def login():
     user_list = list(db.users.find({},{'_id':False}))
-    user_id = user_list[0]["ID"]
-    user_b = user_list[0]["B"]
-    user = {user_id : user_b}
-    id = request.form['id_give']
-    b = request.form['b_give']
-    doc = {id : b}
-    if user["user_id" : "user_b"] == doc[id : b]:
-       return render_template("index.html") , jsonify({'user': user_list})       
+    return jsonify({'user': user_list})       
 
 if __name__ == '__main__':  
    app.run('0.0.0.0',port=8000,debug=True)
